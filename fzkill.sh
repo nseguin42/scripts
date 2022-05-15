@@ -15,7 +15,7 @@ ps="$(ps -U $USER -u $USER -eo comm,pid,pcpu,args  --sort -pcpu  --no-headers)"
 # in: a newline-separated list
 # out: the selected line, e.g.
 # `fzkill           334411  0.0 /bin/bash /home/user/.local/bin/fzkill`
-dmenu_cmd='fuzzel -I -w 120 -l 10 -b 3b4252ef -t d8dee9ff -s 88c0d0ff -S 3b4252ff -C 4c566aef -m bf616aff -r 0 --line-height=24px -d --log-no-syslog'
+dmenu_cmd="fuzzel -I -w 120 -l 10 -b 3b4252ef -t d8dee9ff -s 88c0d0ff -S 3b4252ff -C 4c566aef -m bf616aff -r 0 --line-height=24px -d --log-no-syslog -P \"kill -$signal: \""
 
 process="$(echo "$ps" | eval "$dmenu_cmd")"
 process_=($process)
